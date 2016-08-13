@@ -1,3 +1,5 @@
+// app/router.js
+
 import Ember from 'ember';
 import config from './config/environment';
 
@@ -6,6 +8,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('bands', function(){
+    this.route('band', { path: ':slug'}, function(){
+      this.route('songs');
+    });
+  });
 });
 
 export default Router;
